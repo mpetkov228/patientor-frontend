@@ -1,21 +1,20 @@
 import { useParams } from "react-router-dom";
-import { Patient } from "../../types";
+import { Diagnosis, Patient } from "../../types";
 
 import GenderIcon from "./GenderIcon";
 
 interface Props {
   patients: Patient[];
+  diagnoses: Diagnosis[];
 }
 
-const PatientPage = ({ patients }: Props) => {
+const PatientPage = ({ patients, diagnoses }: Props) => {
   const id = useParams().id;
   const patient = patients.find(p => p.id === id);
 
-  if (!patient) {
+  if (!patient || !diagnoses) {
     return null;
   }
-
-  console.log(patient.entries);
 
   return (
     <div>
@@ -29,7 +28,7 @@ const PatientPage = ({ patients }: Props) => {
             <div>{entry.date} {entry.description}</div>
             <ul>
               {entry.diagnosisCodes?.map(code => 
-                <li key={code}>{code}</li>
+                <li key={code}>{code} {diagnoses.find(d => d.code === code)!.name}</li>
               )}
             </ul>
           </div>
