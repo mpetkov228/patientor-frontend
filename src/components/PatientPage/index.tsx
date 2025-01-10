@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Diagnosis, Patient } from "../../types";
 
 import GenderIcon from "./GenderIcon";
+import EntryDetails from "../Entry/EntryDetails";
 
 interface Props {
   patients: Patient[];
@@ -24,14 +25,7 @@ const PatientPage = ({ patients, diagnoses }: Props) => {
       <h3>entries</h3>
       <div>
         {patient.entries.map(entry => 
-          <div key={entry.id}>
-            <div>{entry.date} {entry.description}</div>
-            <ul>
-              {entry.diagnosisCodes?.map(code => 
-                <li key={code}>{code} {diagnoses.find(d => d.code === code)!.name}</li>
-              )}
-            </ul>
-          </div>
+          <EntryDetails key={entry.id} entry={entry} />
         )}
       </div>
     </div>
