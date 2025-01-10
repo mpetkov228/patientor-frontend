@@ -1,3 +1,4 @@
+import WorkIcon from '@mui/icons-material/Work';
 import { Entry } from "../../types";
 
 interface Props {
@@ -12,7 +13,7 @@ const OccupationalHealthcareEntry = ({ entry }: Props) => {
 
   return (
     <div className="entry">
-      <div>{entry.date} {entry.employerName}</div>
+      <div>{entry.date} <WorkIcon /> {entry.employerName}</div>
       <div>{entry.description}</div>
       <div>diagnosed by {entry.specialist}</div>
     </div>

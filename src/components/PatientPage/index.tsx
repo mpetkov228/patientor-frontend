@@ -3,6 +3,7 @@ import { Diagnosis, Patient } from "../../types";
 
 import GenderIcon from "./GenderIcon";
 import EntryDetails from "../Entry/EntryDetails";
+import { Button } from "@mui/material";
 
 interface Props {
   patients: Patient[];
@@ -28,6 +29,7 @@ const PatientPage = ({ patients, diagnoses }: Props) => {
           <EntryDetails key={entry.id} entry={entry} />
         )}
       </div>
+      <Button variant="contained">Add entry</Button>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { Entry } from "../../types";
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 const HospitalEntry = ({ entry }: Props) => {
   return (
     <div className="entry">
-      <div>{entry.date}</div>
+      <div>{entry.date} <LocalHospitalIcon /></div>
       <div>{entry.description}</div>
       <div>diagnosed by {entry.specialist}</div>
     </div>
